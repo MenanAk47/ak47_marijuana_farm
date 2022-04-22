@@ -45,7 +45,7 @@ $(function() {
                 $("#" + item).hide();
 
 
-                $.post('http://ak47_marijuana_farm/putcart', JSON.stringify({
+                $.post('https://ak47_marijuana_farm/putcart', JSON.stringify({
                     item: item,
                     price: price,
                     label: label,
@@ -84,12 +84,12 @@ $(function() {
             });
 
             $("body").on("click", "#refreshcart", function() {
-                $.post('http://ak47_marijuana_farm/escape', JSON.stringify({}));
+                $.post('https://ak47_marijuana_farm/escape', JSON.stringify({}));
                 location.reload(true);
                 $('#wrapper').hide("fast");
                 $('#payment').hide("fast");
                 $('#cart').hide("fast");
-                $.post('http://ak47_marijuana_farm/refresh', JSON.stringify({}));
+                $.post('https://ak47_marijuana_farm/refresh', JSON.stringify({}));
             });
 
             $("body").on("click", "#back", function() {
@@ -108,18 +108,18 @@ $(function() {
                     var count = $('#' + value[i].id).attr('count');
                     var price = $('#' + value[i].id).attr('price');
                     if (parseInt(count) >= parseInt(value[i].value) && parseInt(value[i].value) != 0 && isNumber) {
-                        $.post('http://ak47_marijuana_farm/escape', JSON.stringify({}));
+                        $.post('https://ak47_marijuana_farm/escape', JSON.stringify({}));
                         location.reload(true);
                         $('#wrapper').hide("fast");
                         $('#payment').hide("fast");
                         $('#cart').hide("fast");
-                        $.post('http://ak47_marijuana_farm/buy', JSON.stringify({
+                        $.post('https://ak47_marijuana_farm/buy', JSON.stringify({
                         	Price: price,
                             Count: value[i].value,
                             Item: value[i].id
                         }));
                     } else {
-                        $.post('http://ak47_marijuana_farm/notify', JSON.stringify({
+                        $.post('https://ak47_marijuana_farm/notify', JSON.stringify({
                             msg: "~r~One of the item does not have enough stock or the amount is invalid."
                         }));
                     }
@@ -128,10 +128,10 @@ $(function() {
 
 
             $("body").on("click", "#bossactions", function() {
-                $.post('http://ak47_marijuana_farm/bossactions', JSON.stringify({}));
-                $.post('http://ak47_marijuana_farm/escape', JSON.stringify({}));
+                $.post('https://ak47_marijuana_farm/bossactions', JSON.stringify({}));
+                $.post('https://ak47_marijuana_farm/escape', JSON.stringify({}));
                 location.reload(true);
-                $.post('http://ak47_marijuana_farm/emptycart', JSON.stringify({}));
+                $.post('https://ak47_marijuana_farm/emptycart', JSON.stringify({}));
                 $('#wrapper').hide("fast");
                 $('#payment').hide("fast");
                 $('#cart').hide("fast");
@@ -144,9 +144,9 @@ $(function() {
 
     document.onkeyup = function(data) {
         if (data.which == 27) { // Escape key
-            $.post('http://ak47_marijuana_farm/escape', JSON.stringify({}));
+            $.post('https://ak47_marijuana_farm/escape', JSON.stringify({}));
             location.reload(true);
-            $.post('http://ak47_marijuana_farm/emptycart', JSON.stringify({}));
+            $.post('https://ak47_marijuana_farm/emptycart', JSON.stringify({}));
             $('#wrapper').hide("fast");
             $('#payment').hide("fast");
             $('#cart').hide("fast");
