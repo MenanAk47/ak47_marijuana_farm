@@ -25,6 +25,10 @@ AddEventHandler('ak47_marijuana_farm:openbossaction', function()
         menu.close()
         inBossMenu = false
     end)
+    TriggerEvent('society:openBossMenu', 'marijuana', function(data, menu)
+        menu.close()
+        inBossMenu = false
+    end)
 end)
 
 RegisterNetEvent('ak47_marijuana_farm:notify')
